@@ -1,3 +1,14 @@
+const dotenv = require("dotenv").config();
+const config = {
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT,
+};
+
+
+console.log(config);
 
 const argumentos = process.argv.slice(2)
 let opcion = argumentos[0];
@@ -12,13 +23,7 @@ let dato4 = Number(argumentos[4]);
  */
  const { Client } = require('pg');
  
- const config = {
-     user: 'postgres',
-     host: 'localhost',
-     database: 'musica',
-     password: '1234',
-     port: 5432,
-     }
+
      const client = new Client(config);
 
      client.connect();
